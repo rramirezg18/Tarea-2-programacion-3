@@ -13,6 +13,7 @@ public class Tarea2Programacion3 {
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        MetodosDeOrdenamiento metodo = new MetodosDeOrdenamiento();
         String cadena = "";
         System.out.println("Ingresa una cadena de texto");
         cadena = entrada.nextLine();
@@ -24,11 +25,25 @@ public class Tarea2Programacion3 {
             opcion = entrada.nextInt();
             switch(opcion){
                 case 1:
-                    
+                    System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.selectionSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 2:
+                    System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.bubbleSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 3:
+                    System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.insertionSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 4:
                     break;

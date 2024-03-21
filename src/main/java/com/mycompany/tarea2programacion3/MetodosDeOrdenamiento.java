@@ -37,6 +37,13 @@ public class MetodosDeOrdenamiento {
     }
     
     public static void insertionSort(char[] arreglo){
-        
+        for(int i = 1; i < arreglo.length; i++){
+            char temp = arreglo[i];
+            int j = i -1;
+            for(; j >= 0 && arreglo[j] > temp; j++){
+                arreglo[j + 1] = arreglo[j];
+            }
+            arreglo[j+1] = temp;
+        } 
     }
 }
