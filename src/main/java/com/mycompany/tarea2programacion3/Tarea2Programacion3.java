@@ -25,6 +25,7 @@ public class Tarea2Programacion3 {
             opcion = entrada.nextInt();
             switch(opcion){
                 case 1:
+                	System.out.println("\n\t Selection Sort\n");
                     System.out.println("La cadena desordenada es");
                     System.out.println(cadena);
                     metodo.selectionSort(arreglo);
@@ -32,6 +33,7 @@ public class Tarea2Programacion3 {
                     System.out.println(arreglo);
                     break;
                 case 2:
+                	System.out.println("\n\t Bubble Sort\n");
                     System.out.println("La cadena desordenada es");
                     System.out.println(cadena);
                     metodo.bubbleSort(arreglo);
@@ -39,6 +41,7 @@ public class Tarea2Programacion3 {
                     System.out.println(arreglo);
                     break;
                 case 3:
+                	System.out.println("\n\t Insertion Sort\n");
                     System.out.println("La cadena desordenada es");
                     System.out.println(cadena);
                     metodo.insertionSort(arreglo);
@@ -46,18 +49,55 @@ public class Tarea2Programacion3 {
                     System.out.println(arreglo);
                     break;
                 case 4:
+                	System.out.println("\n\t Merge Sort\n");
+                	System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.mergeSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 5:
+                	System.out.println("\n\t Quick Sort\n");
+                	System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.quickSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 6:
+                	System.out.println("\n\t Heap Sort\n");
+                	System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.heapSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 7:
+                	System.out.println("\n\t Counting Sort\n");
+                	System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.countingSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 8:
+                	System.out.println("\n\t Radix Sort\n");
+                	System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.radixSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 9:
+                	System.out.println("\n\t Bucket Sort\n");
+                	System.out.println("La cadena desordenada es");
+                    System.out.println(cadena);
+                    metodo.bucketSort(arreglo);
+                    System.out.println("La cadena ordenada es");
+                    System.out.println(arreglo);
                     break;
                 case 10:
+                	salir = 1;
                     break;
             }
         }
