@@ -64,7 +64,7 @@ public class Tarea2Programacion3 {
     }
     
     public static void Menu(){
-        System.out.println("/n/t METODOS DE ORDENAMIENTO");
+        System.out.println("\n\t METODOS DE ORDENAMIENTO\n");
         System.out.println("1. Selection Sort");
         System.out.println("2. Bubble Sort");
         System.out.println("3. Insertion Sort");
@@ -74,7 +74,8 @@ public class Tarea2Programacion3 {
         System.out.println("7. Counting Sort");
         System.out.println("8. Radix Sort");
         System.out.println("9. Bucket Sort");
-        System.out.println("10. Salir ");
+        System.out.println("10. Salir \n");
+        System.out.println("Seleccione un metodo de ordenamiento");
         
     }
 }
