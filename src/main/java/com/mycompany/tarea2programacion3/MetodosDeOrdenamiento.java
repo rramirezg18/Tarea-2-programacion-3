@@ -4,7 +4,7 @@
  */
 package com.mycompany.tarea2programacion3;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  *
@@ -57,12 +57,12 @@ public class MetodosDeOrdenamiento {
     	mergeSortAux(arreglo, 0, arreglo.length - 1);    	
     }
     
-    public static void mergeSortAux(char[] arreglo. int inicio, int fin) {
+    public static void mergeSortAux(char[] arreglo, int inicio, int fin) {
     	if(inicio < fin) {// comprobamos si los subarreglos tienen mas de un elemento
-    		int medio = (inicio + fin)/ 2; // calculamos la mitad del arreglo
-    		mergeSortAux(arreglo, inicio, medio);//ordenamos recursivamente el sub arreglo izquierdo
-    		mergeSortHelper(arreglo, medio + 1; fin);//Ordenamos recursivamente el sub arreglo derecho
-    		merge(arreglo, inicio, medio, fin); // combina los dos subarreglos
+            int medio = (inicio + fin)/ 2; // calculamos la mitad del arreglo
+            mergeSortAux(arreglo, inicio, medio);//ordenamos recursivamente el sub arreglo izquierdo
+            mergeSortAux(arreglo, medio + 1, fin);//Ordenamos recursivamente el sub arreglo derecho
+            merge(arreglo, inicio, medio, fin); // combina los dos subarreglos
     	}
     }
     
@@ -72,33 +72,33 @@ public class MetodosDeOrdenamiento {
     	char[] izquierdo = new char[numero1];//almacena el sub arreglo izquierdo
     	char[] derecho = new char [numero2];//almacenamos el sub arreglo derecho
     	for(int i = 0; i < numero1; i++) {//pasamos los elementos izquierdos del arreglo original al arreglo izquierdo
-    		izquierdo[i] = arreglo[inicio + i];
+            izquierdo[i] = arreglo[inicio + i];
     	}
     	for(int j = 0; j < numero2; j++) {//pasamos los elementos derechos del arreglo original al arreglo derecho
-    		derecho[j] =  arreglo[medio + 1 + j];
+            derecho[j] =  arreglo[medio + 1 + j];
     	}
     	//unimos los arreglos izquierdo y derecho
     	int i = 0, j = 0;
     	int k = inicio;
-    	while(i < numero 1 && j < numero 2) {
-    		if(izquierdo[i] <= derecho[j]) {// comparamos los elementos y los ordenamos
-    			arreglo[k] = izquierdo[i];
-    			i ++;
-    		}else {
-    			arreglo[k] = derecho[j];
-    			j++
-    		}
-    		k++;
+    	while(i < numero1 && j < numero2){
+            if(izquierdo[i] <= derecho[j]) {// comparamos los elementos y los ordenamos
+    		arreglo[k] = izquierdo[i];
+    		i ++;
+            }else {
+                arreglo[k] = derecho[j];
+    		j++;
+            }
+            k++;
     	}//agregamos los elementos del arreglo izquiedo que aun no han sido agregados
     	while(i < numero1) {
-    		arreglo[k] = izquierdo[i];
-    		i++;
-    		k++;		  	
+            arreglo[k] = izquierdo[i];
+            i++;
+            k++;		  	
     	}//agregamos los elementos del arreglo derecho que aun no han sido agregados
-    	whie(j < numero2){
-    		arreglo[k] = derecho[j];
-    		j++;
-    		k++;
+    	while(j < numero2){
+            arreglo[k] = derecho[j];
+            j++;
+            k++;
     	}
     }
     
@@ -109,10 +109,9 @@ public class MetodosDeOrdenamiento {
     
     public static void quickSortAux(char[] arreglo, int inicio, int fin) {
     	if(inicio < fin) {// comprobamos si hay mas de un elemnto en los subarreglos
-    		int pivote = particion(arreglo, inicio, fin){//el pivote sirve para dividir en dos subarreglos al rededor del pivote
-    			quickSortAux(arreglo, inicio, pivote - 1);//ordenamos recursivamente el sub arreglo izquierdo
-    			quickSortAux(arreglo, pivote + 1, fin);//ordenamos recursivamente el sub arreglo derecho
-    		}
+            int pivote = particion(arreglo, inicio, fin);//el pivote sirve para dividir en dos subarreglos al rededor del pivote
+            quickSortAux(arreglo, inicio, pivote - 1);//ordenamos recursivamente el sub arreglo izquierdo
+            quickSortAux(arreglo, pivote + 1, fin);//ordenamos recursivamente el sub arreglo derecho
     	}
     }
     	
@@ -120,10 +119,10 @@ public class MetodosDeOrdenamiento {
     	char pivote = arreglo[fin];//seleccionamos el pivote como ultimo elemento del arreglo
     	int i = inicio - 1;// el elemento más pequeño en el arreglo 
     	for(int j = inicio; j < fin; j++) {
-    		if(arreglo[j] <= pivote) {
-    			i++;
-    			intercambiar(arreglo, i, j);//intercambia posiciones entre i, j
-    		}
+            if(arreglo[j] <= pivote) {
+    		i++;
+    		intercambiar(arreglo, i, j);//intercambia posiciones entre i, j
+            }
     	}
     	intercambiar(arreglo, i + 1, fin);
     	return i + 1;
@@ -139,13 +138,13 @@ public class MetodosDeOrdenamiento {
     	//Este metodo funciona de manera siminal a un arbol binario, creando un monticulo con los datos de tal manera que los izuierdos sean menores y los derechos mayores
     	int n = arreglo.length;
     	for(int i = n / 2 - 1; i >= 0; i--) {
-    		amontonar(arreglo, n, i);
+            amontonar(arreglo, n, i);
     	}
     	for(int i = n - 1; i > 0; i--) {
-    		char temp = arreglo[0];
-    		arreglo[0] = arreglo[i];
-    		arreglo[i] = temp;
-    		amontonar(arreglo, i, 0);
+            char temp = arreglo[0];
+            arreglo[0] = arreglo[i];
+            arreglo[i] = temp;
+            amontonar(arreglo, i, 0);
     	}
     }
     
@@ -153,17 +152,17 @@ public class MetodosDeOrdenamiento {
     	int mayor = i;
     	int izquierdo = 2 * i + 1;
     	int derecho = 2 * i + 2;
-    	if(izquiedo < n && arreglo[izquierdo] > arreglo[mayor]) {
-    		mayor = izquierdo;
+    	if(izquierdo < n && arreglo[izquierdo] > arreglo[mayor]) {
+            mayor = izquierdo;
     	}
     	if(derecho < n && arreglo[derecho] > arreglo[mayor]) {
-    		mayor = derecho;
+            mayor = derecho;
     	}
     	if(mayor != i) {
-    		char temp = arreglo[i];
-    		arreglo[i] = arreglo[mayor];
-    		arreglo[mayor] = temp;
-    		amontonar(arreglo, n, mayor);
+            char temp = arreglo[i];
+            arreglo[i] = arreglo[mayor];
+            arreglo[mayor] = temp;
+            amontonar(arreglo, n, mayor);
     	}
     }
     	
@@ -173,60 +172,60 @@ public class MetodosDeOrdenamiento {
     	int rango = 250;
     	int[] conteo = new int[rango];
     	for(int i = 0; i < rango; i++) {
-    		conteo[i] = 0;
+            conteo[i] = 0;
     	}
     	for(int i = 0; i < n; i++) {
-    		++conteo[arreglo[i]];
+            ++conteo[arreglo[i]];
     	}
     	for(int i = 1; i < rango; i++){
-    		conteo[i] += conteo[i-1];
+            conteo[i] += conteo[i-1];
     	}
     	char[] resultado = new char[n];
     	for(int i = 0; i < n; i++) {
-    		resultado[conteo[arreglo[i]] - 1] = arreglo[i];
-    		--conteo[arreglo[i]];
+            resultado[conteo[arreglo[i]] - 1] = arreglo[i];
+            --conteo[arreglo[i]];
     	}
     	for(int i = 0; i < n; i++) {
-    		arreglo[i] = resultado[i];
+            arreglo[i] = resultado[i];
     	}
     }
     	
     public static void radixSort(char[] arreglo) {
     	//es un metodo no comparativo que se basa en los digitos individuales de los numeros
     	int n = arreglo.length;
-    	int[] arregloEnteros = new Int[n];
+    	int[] arregloEnteros = new int[n];
     	for(int i = 0; i < n; i++) {
-    		arregloEnteros[i] = arreglo[i];
+            arregloEnteros[i] = arreglo[i];
     	}
     	int maximo = Arrays.stream(arregloEnteros).max().getAsInt();
     	for(int exp = 1; maximo / exp > 0; exp *= 10) {
-    		countingSortPorDigito(arregloEnteros, exp);
+            countingSortPorDigito(arregloEnteros, exp);
     	}
     	for(int i = 0; i < n; i++) {
-    		arreglo[i] = (char) arregloEnteros[i];
+            arreglo[i] = (char) arregloEnteros[i];
     	}
     }
     
-    public static void countigSortPorDigito(int[] arreglo, int exp) {
+    public static void countingSortPorDigito(int[] arreglo, int exp) {
     	int n = arreglo.length;
-	    int rango = 10;
-	    int[] conteo = new int[rango];
-	    int[] resultado = new int[n];
-	    for (int i = 0; i < n; i++) {
-	        int digito = (arreglo[i] / exp) % 10;
-	        conteo[digito]++;
-	    }
-	    for (int i = 1; i < rango; i++) {
-	        conteo[i] += conteo[i - 1];
-	    }
-	    for (int i = n - 1; i >= 0; i--) {
-	        int digito = (arreglo[i] / exp) % 10;
-	        resultado[conteo[digito] - 1] = arreglo[i];
-	        conteo[digito]--;
-	    }
-	    for (int i = 0; i < n; i++) {
-	        arreglo[i] = resultado[i];
-	    }
+	int rango = 10;
+	int[] conteo = new int[rango];
+        int[] resultado = new int[n];
+        for (int i = 0; i < n; i++) {
+	    int digito = (arreglo[i] / exp) % 10;
+	    conteo[digito]++;
+	}
+	for (int i = 1; i < rango; i++) {
+            conteo[i] += conteo[i - 1];
+	}
+	for (int i = n - 1; i >= 0; i--) {
+	    int digito = (arreglo[i] / exp) % 10;
+	    resultado[conteo[digito] - 1] = arreglo[i];
+	    conteo[digito]--;
+	}
+	for (int i = 0; i < n; i++) {
+	    arreglo[i] = resultado[i];
+	}
     }
     	
     public static void bucketSort(char[] arreglo) {
@@ -236,17 +235,17 @@ public class MetodosDeOrdenamiento {
     	int rango = 250; 
     	ArrayList<Character>[] buckets = new ArrayList[rango];
     	for(int i = 0; i < rango; i++) {
-    		buckets[i] = new ArrayList<>();
+            buckets[i] = new ArrayList<>();
     	}
     	for(int i = 0; i < n ; i++) {
-    		int bucketIndex = arreglo[i];
-    		buckets[bucketIndex].add(arreglo[i]);
+            int bucketIndex = arreglo[i];
+            buckets[bucketIndex].add(arreglo[i]);
     	}
     	int index = 0;
     	for(int i = 0; i < rango; i++) {
-    		for (char c : buckets[i]) {
-    			arreglo[index++] = c;
-    		}
+            for (char c : buckets[i]) {
+    		arreglo[index++] = c;
+            }
     	}
     }
 }
