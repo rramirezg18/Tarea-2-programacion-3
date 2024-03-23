@@ -16,6 +16,6 @@
 
 # EJERCICIO ARBOL B
 
-![Imagen](Ejercicio Arbol B.png)
+![Imagen](EjercicioArbolB.png)
 
 
